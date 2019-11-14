@@ -11,7 +11,7 @@ class JournalApp extends StatelessWidget {
     return MaterialApp(
       title: Constants.appTitle,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
