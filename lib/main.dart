@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:journal/pages/HomePage.dart';
+import 'package:journal/helpers/router.dart' as router;
 import 'helpers/Constants.dart' as Constants;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(JournalApp());
 
@@ -13,7 +14,8 @@ class JournalApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: MyHomePage(),
+      onGenerateRoute: router.generateRoute,
+      initialRoute: router.LoginRoute,
       debugShowCheckedModeBanner: false,
     );
   }
