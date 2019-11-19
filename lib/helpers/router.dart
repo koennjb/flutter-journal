@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:journal/views/HomeView.dart';
-import 'package:journal/views/LoginView.dart';
-import 'package:journal/views/undefined_view.dart';
+import 'package:journal/ui/views/LoginView.dart';
+import 'package:journal/ui/views/home_view.dart';
+import 'package:journal/ui/views/undefined_view.dart';
 
 const String HomeRoute = "/";
 const String LoginRoute = "/login";
