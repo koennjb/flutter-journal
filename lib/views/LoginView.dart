@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:journal/helpers/Constants.dart';
 import 'package:journal/helpers/colors.dart';
+import 'package:journal/helpers/router.dart';
 
 class LoginView extends StatelessWidget {
   @override
@@ -19,9 +20,8 @@ class LoginView extends StatelessWidget {
               Text(
                 appTitle.toUpperCase(),
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: ScreenUtil.getInstance().setSp(75)
-                ),
+                    fontWeight: FontWeight.bold,
+                    fontSize: ScreenUtil.getInstance().setSp(75)),
               ),
               Container(
                 width: double.infinity,
@@ -42,36 +42,26 @@ class LoginView extends StatelessWidget {
                         Text(
                           usernameLabel,
                           style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: ScreenUtil.getInstance().setSp(26)
-                          ),
+                              fontWeight: FontWeight.w500,
+                              fontSize: ScreenUtil.getInstance().setSp(26)),
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            hintText: usernameHint,
-                            hintStyle: TextStyle(
-                              color: grey,
-                              fontSize: 12
-                            )
-                          ),
+                              hintText: usernameHint,
+                              hintStyle: TextStyle(color: grey, fontSize: 12)),
                         ),
                         SizedBox(height: 20),
                         Text(
                           passwordLabel,
                           style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: ScreenUtil.getInstance().setSp(26)
-                          ),
+                              fontWeight: FontWeight.w500,
+                              fontSize: ScreenUtil.getInstance().setSp(26)),
                         ),
                         TextField(
                           obscureText: true,
                           decoration: InputDecoration(
-                            hintText: passwordHint,
-                            hintStyle: TextStyle(
-                              color: grey,
-                              fontSize: 12
-                            )
-                          ),
+                              hintText: passwordHint,
+                              hintStyle: TextStyle(color: grey, fontSize: 12)),
                         ),
                         SizedBox(height: 20),
                         Row(
@@ -79,9 +69,7 @@ class LoginView extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               forgotPassword,
-                              style: TextStyle(
-                                color: blue
-                              ),
+                              style: TextStyle(color: blue),
                             )
                           ],
                         ),
@@ -94,27 +82,28 @@ class LoginView extends StatelessWidget {
                 alignment: MainAxisAlignment.center,
                 children: <Widget>[
                   RaisedButton(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8), side: BorderSide(color: Colors.transparent)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        side: BorderSide(color: Colors.transparent)),
                     color: primary,
-                    onPressed: () => {},
-                    child: Text(
-                      loginLabel.toUpperCase(),
-                       style: TextStyle(color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil.getInstance().setSp(30))),
+                    onPressed: () => {Navigator.pushNamed(context, HomeRoute)},
+                    child: Text(loginLabel.toUpperCase(),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: ScreenUtil.getInstance().setSp(30))),
                   ),
                   OutlineButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                       side: BorderSide(color: primary)
-                      ),
+                        borderRadius: BorderRadius.circular(8),
+                        side: BorderSide(color: primary)),
                     borderSide: BorderSide(color: primary),
-                    onPressed: () => {},
-                    child: Text(
-                      signUpLabel.toUpperCase(),
-                       style: TextStyle(color: Colors.black,
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil.getInstance().setSp(30))),
+                    onPressed: () => {Navigator.pushNamed(context, HomeRoute)},
+                    child: Text(signUpLabel.toUpperCase(),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: ScreenUtil.getInstance().setSp(30))),
                   )
                 ],
               )

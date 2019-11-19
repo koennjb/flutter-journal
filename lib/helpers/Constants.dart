@@ -9,5 +9,5 @@ const String passwordLabel = "Password";
 const String usernameHint = "username";
 const String passwordHint = "password";
 const String forgotPassword = "Forgot your password?";
-const String loginLabel = "Login";
+const String loginLabel = "Sign In";
 const String signUpLabel = "Sign Up";
