@@ -18,7 +18,7 @@ class JournalApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: router.generateRoute,
-      initialRoute: router.HomeRoute,
+      initialRoute: router.LoginRoute,
       debugShowCheckedModeBanner: false,
     );
   }
