@@ -6,7 +6,7 @@ import 'base_model.dart';
 class LoginModel extends BaseModel {
   AuthenticationService authService = locator<AuthenticationService>();
 
-  String username;
+  String username = "Default";
 
   Future<bool> login(String user, String pass) async {
     setState(ViewState.Busy);

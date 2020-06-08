@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:journal/helpers/router.dart' as router;
-import 'package:journal/scoped_models/login_model.dart';
+import 'package:journal/constants/colors.dart';
 import 'package:journal/services/auth_service.dart';
 import 'package:journal/services/mock_auth_service.dart';
-import 'package:journal/ui/views/base_view.dart';
+import 'package:journal/ui/widgets/auth_widget.dart';
+import 'package:journal/ui/widgets/auth_widget_builder.dart';
 import 'package:provider/provider.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'helpers/Constants.dart' as Constants;
 import 'helpers/service_locator.dart';
+import 'models/user.dart';
 
 void main() {
   setupLocator();
@@ -25,14 +25,29 @@ class JournalApp extends StatelessWidget {
           dispose: (context, AuthService service) => service.dispose(),
         )
       ],
-      child: MaterialApp(
-        title: Constants.appTitle,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        onGenerateRoute: router.generateRoute,
-        initialRoute: router.LoginRoute,
-        debugShowCheckedModeBanner: false,
+      child: AuthWidgetBuilder(
+        builder: (BuildContext context, AsyncSnapshot<User> userSnapshot) {
+          return MaterialApp(
+            title: Constants.appTitle,
+            theme: ThemeData(
+              primarySwatch: JournalColors.primary,
+              textTheme: Theme.of(context).textTheme.apply(
+                    bodyColor: JournalColors.defaultText,
+                    displayColor: JournalColors.defaultText,
+                  ),
+              primaryTextTheme: Theme.of(context).primaryTextTheme.apply(
+                    bodyColor: JournalColors.primaryText,
+                    displayColor: JournalColors.primaryText,
+                  ),
+            ),
+            //onGenerateRoute: router.generateRoute,
+            //initialRoute: router.LoginRoute,
+            home: AuthWidget(
+              userSnapshot: userSnapshot,
+            ),
+            debugShowCheckedModeBanner: false,
+          );
+        },
       ),
     );
   }
